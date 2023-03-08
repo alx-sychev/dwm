@@ -28,7 +28,6 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	/* { "Gimp",     NULL,       NULL,       0,            1,           -1 }, */
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -41,7 +40,6 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -74,15 +72,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
-	/* { MODKEY,                       XK_i,      incnmaster,     {.i = +1 } }, */
-	/* { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } }, */
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	/* { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, */
-	/* { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, */
-	/* { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, */
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
